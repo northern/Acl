@@ -1,0 +1,21 @@
+{
+    "name": "northern/acl",
+    "description": "Role based ACL and permissions.",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "northern", "acl", "permissios"
+    ],
+    "autoload": {
+        "psr-0": { "Northern\\": ["src/", "tests/src/"] }
+    },
+    "require": {
+        "php": ">=5.3.3",
+        "psr/log": "1.0.0",
+        "northern/common": "1.*",
+        "zendframework/zend-permissions-acl": "2.3.*"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "4.4.*"
+    }
+}
