@@ -4,7 +4,7 @@ A simple Role based Access Control List build on Zend Framework 2 ACL.
 
 ## Introduction
 
-Northern\Acl is a role based ACL that allows for easy definition of permissions for specific roles. Roles can inherit from other roles. Simply by storing a role against a user, using that role would allow you to test if that role is permitted a cetain access criteria.
+Northern\Acl is a role based ACL that allows for easy definition of permissions for specific roles. Roles can inherit from other roles. Simply by storing a role against a user, using that role would allow you to test if that role is permitted a certain access criteria.
 
 ## Installation
 
@@ -22,11 +22,11 @@ To use Northern\Acl start by defining a permissions list. We can start with an e
        'rules'     => [],
     ];
 
-Our permissions list contains three top-level requirements, `roles`, `resources` and `rules`. The idea behind a role based ACL is that a specific role has access to resources through specified rules. Don't confuse the elements you define in this list with 'real' objects in your application. The permissions list is simply a structure (or model) we test against, it is static and therefore it doesn't need to be stored in a database but can simple be defined in a business object in your application as part of your business rules.
+Our permissions list contains three top-level requirements, `roles`, `resources` and `rules`. The idea behind a role based ACL is that a specific role has access to resources through specified rules. Don't confuse the elements you define in this list with 'real' objects in your application. The permissions list is simply a structure (or model) we test against, it is static and therefore it doesn't need to be stored in a database but can simply be defined in a business object in your application as part of your business rules.
 
 Let's add some permissions..
 
-For the purpose of this demonstration we define three roles; `guest`, `member`, `author` and `admin`. For the sake of argument, we define the resources for a simple blog so we have `post` and `comment` as resources:
+For the purpose of this demonstration we define four roles; `guest`, `member`, `author` and `admin`. For the sake of argument, we define the resources for a simple blog so we have `post` and `comment` as resources:
 
     $permsissions = [
        'roles'     => [
@@ -158,6 +158,14 @@ The `$acl` instance will allow us to test for permissions through the `isAllowed
 
 We can now use this `Permissions` class to do some magic:
 
+    $acl = new \Northern\Acl\Acl();
+    $acl->loadPermissions( $permissions );
+
     $permissions = new Permissions( $acl, 'member' );
 
-    
+    $permissions->canCreatePost();
+    // TRUE!
+
+As you can see. The `Permissions` instance allows you to test for permissions on a role through magic methods.
+
+That's all folks!
