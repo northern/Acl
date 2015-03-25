@@ -161,9 +161,9 @@ We can now use this `Permissions` class to do some magic:
     $acl = new \Northern\Acl\Acl();
     $acl->loadPermissions( $permissions );
 
-    $memberPermissions = new Permissions( $acl, 'member' );
+    $authorPermissions = new Permissions( $acl, 'author' );
 
-    $memberPermissions->canCreatePost();
+    $authorPermissions->canCreatePost();
     // TRUE!
 
 As you can see. The `Permissions` instance allows you to test for permissions on a role through magic methods.
