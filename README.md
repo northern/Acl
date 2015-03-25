@@ -16,7 +16,7 @@ To use Northern\Acl add it to your project using Composer:
 
 To use Northern\Acl start by defining a permissions list. We can start with an empty list:
 
-    $permsissions = [
+    $permissions = [
        'roles'     => [],
        'resources' => [],
        'rules'     => [],
@@ -28,7 +28,7 @@ Let's add some permissions..
 
 For the purpose of this demonstration we define four roles; `guest`, `member`, `author` and `admin`. For the sake of argument, we define the resources for a simple blog so we have `post` and `comment` as resources:
 
-    $permsissions = [
+    $permissions = [
        'roles'     => [
           ['name' => 'guest'],
           ['name' => 'member', 'parent' => 'guest'],
@@ -44,7 +44,7 @@ For the purpose of this demonstration we define four roles; `guest`, `member`, `
 
 Easy as. Now lets define a rule that allows guests to view both posts and comments:
 
-    $permsissions = [
+    $permissions = [
        'roles'     => [
           ['name' => 'guest'],
           ['name' => 'member', 'parent' => 'guest'],
@@ -66,7 +66,7 @@ Easy as. Now lets define a rule that allows guests to view both posts and commen
 
 As you can see, the rule is pretty straight forward. both `permissions` and `resources` can either be set as single values or as an array. Let's create a rule that allows members to create comments:
 
-    $permsissions = [
+    $permissions = [
        'roles'     => [
           ['name' => 'guest'],
           ['name' => 'member', 'parent' => 'guest'],
@@ -93,7 +93,7 @@ As you can see, the rule is pretty straight forward. both `permissions` and `res
 
 Great. Now let's fill in the rest of the permissions:
 
-    $permsissions = [
+    $permissions = [
        'roles'     => [
           ['name' => 'guest'],
           ['name' => 'member', 'parent' => 'guest'],
@@ -161,9 +161,9 @@ We can now use this `Permissions` class to do some magic:
     $acl = new \Northern\Acl\Acl();
     $acl->loadPermissions( $permissions );
 
-    $permissions = new Permissions( $acl, 'member' );
+    $memberPermissions = new Permissions( $acl, 'member' );
 
-    $permissions->canCreatePost();
+    $memberPermissions->canCreatePost();
     // TRUE!
 
 As you can see. The `Permissions` instance allows you to test for permissions on a role through magic methods.
