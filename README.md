@@ -48,7 +48,8 @@ Easy as. Now lets define a rule that allows guests to view both posts and commen
        'roles'     => [
           ['name' => 'guest'],
           ['name' => 'member', 'parent' => 'guest'],
-          ['name' => 'admin', 'parent' => 'member'],
+          ['name' => 'author', 'parent' => 'member'],
+          ['name' => 'admin',  'parent' => 'author'],
        ],
        'resources' => [
           ['name' => 'post'],
@@ -70,7 +71,8 @@ As you can see, the rule is pretty straight forward. both `permissions` and `res
        'roles'     => [
           ['name' => 'guest'],
           ['name' => 'member', 'parent' => 'guest'],
-          ['name' => 'admin', 'parent' => 'member'],
+          ['name' => 'author', 'parent' => 'member'],
+          ['name' => 'admin',  'parent' => 'author'],
        ],
        'resources' => [
           ['name' => 'post'],
@@ -97,7 +99,8 @@ Great. Now let's fill in the rest of the permissions:
        'roles'     => [
           ['name' => 'guest'],
           ['name' => 'member', 'parent' => 'guest'],
-          ['name' => 'admin', 'parent' => 'member'],
+          ['name' => 'author', 'parent' => 'member'],
+          ['name' => 'admin',  'parent' => 'author'],
        ],
        'resources' => [
           ['name' => 'post'],
