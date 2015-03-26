@@ -138,7 +138,7 @@ To use these permissions we need to load them into the ACL, like this:
     $acl = new \Northern\Acl\Acl();
     $acl->loadPermissions( $permissions );
 
-The `$acl` instance will allow us to test for permissions through the `isAllowed` method. However, the true power of Northern\Acl is in the `Permissions` class of which need need to create a subclass:
+The `$acl` instance will allow us to test for permissions through the `isAllowed` method. However, the true power of Northern\Acl is in the `Permissions` class of which need to create a subclass:
 
     class Permissions extends \Northern\Acl\Permissions {
 
