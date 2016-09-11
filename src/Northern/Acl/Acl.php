@@ -5,7 +5,7 @@ namespace Northern\Acl;
 use Zend\Permissions\Acl\Role\GenericRole as Role;
 use Zend\Permissions\Acl\Resource\GenericResource as Resource;
 
-use Northern\Common\Helper\ArrayHelper as Arr;
+use Northern\Common\Util\ArrayUtil as Arr;
 
 class Acl extends \Zend\Permissions\Acl\Acl {
 
